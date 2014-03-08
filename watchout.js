@@ -4,6 +4,23 @@ var svg = d3.select('body').append('svg');
 
 var w = window.innerWidth, h = window.innerHeight;
 
+
+
+svg.append("defs").append("pattern")
+      .attr("id", "image")
+      .attr("x", "0")
+      .attr("y", "0")
+      .attr("height", "40")
+      .attr("width", "40")
+    .append("image")
+      .attr("x", "0")
+      .attr("y", "0")
+      .attr("height", "40")
+      .attr("width", "40")
+      .attr("xlink:href", "http://img18.imageshack.us/img18/7293/shuriken2.png")
+      
+    ;
+
 svg.attr({width: w, height: h});
 
 svg.selectAll('circle').data(d3.range(10))
@@ -23,7 +40,8 @@ svg.selectAll('circle').data(d3.range(10))
         return "blue";
       }
     })
-    .attr('class', 'badCircle');
+    .attr('class', 'badCircle')
+    .style('fill', "url(#image)");
 
 
 var drag = d3.behavior.drag()
